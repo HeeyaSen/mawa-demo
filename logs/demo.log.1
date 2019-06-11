@@ -1,0 +1,127 @@
+2019-06-10 14:23:19,157 ERROR: Exception on / [GET] [in C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\engine\default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: post.order
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\routes.py", line 33, in index
+    page, app.config['POSTS_PER_PAGE'], False)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask_sqlalchemy\__init__.py", line 496, in paginate
+    items = self.limit(per_page).offset((page - 1) * per_page).all()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\orm\query.py", line 3167, in all
+    return list(self)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\orm\query.py", line 3323, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\orm\query.py", line 3348, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\engine\base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\engine\base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\engine\base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\engine\base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\util\compat.py", line 383, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\util\compat.py", line 128, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\sqlalchemy\engine\default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: post.order
+[SQL: SELECT anon_1.post_id AS anon_1_post_id, anon_1.post_tent AS anon_1_post_tent, anon_1.post_prefab AS anon_1_post_prefab, anon_1.post_timestamp AS anon_1_post_timestamp, anon_1.post_user_id AS anon_1_post_user_id, anon_1.post_order AS anon_1_post_order 
+FROM (SELECT post.id AS post_id, post.tent AS post_tent, post.prefab AS post_prefab, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post."order" AS post_order 
+FROM post JOIN followers ON followers.followed_id = post.user_id 
+WHERE followers.follower_id = ? UNION SELECT post.id AS post_id, post.tent AS post_tent, post.prefab AS post_prefab, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post."order" AS post_order 
+FROM post 
+WHERE post.user_id = ?) AS anon_1 ORDER BY anon_1.post_timestamp DESC
+ LIMIT ? OFFSET ?]
+[parameters: (1, 1, 25, 0)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-06-10 14:26:54,939 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-10 14:28:10,166 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-10 14:28:15,598 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-10 14:28:46,142 ERROR: Exception on / [POST] [in C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\routes.py", line 25, in index
+    post.order = str(Post.pop_timeline(tent, prefab, tent_val, prefab_val, order_time, tent_lifetime, prefab_lifetime))
+NameError: name 'tent' is not defined
+2019-06-10 14:29:59,244 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-10 14:30:36,699 ERROR: Exception on / [POST] [in C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\routes.py", line 25, in index
+    post.order = str(Post.pop_timeline(form.tent.data, form.prefab.data, tent_val, prefab_val, order_time, tent_lifetime, prefab_lifetime))
+NameError: name 'tent_val' is not defined
+2019-06-10 14:31:23,528 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-10 14:31:49,439 ERROR: Exception on / [POST] [in C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\routes.py", line 31, in index
+    post.order = str(Post.pop_timeline(form.tent.data, form.prefab.data, tent_val, prefab_val, order_time, tent_lifetime, prefab_lifetime))
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\models.py", line 144, in pop_timeline
+    for (x,y) in orders:
+TypeError: cannot unpack non-iterable int object

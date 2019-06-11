@@ -1,0 +1,64 @@
+2019-06-10 14:33:21,076 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-10 14:33:28,961 ERROR: Exception on / [POST] [in C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\routes.py", line 31, in index
+    post.order = str(Post.pop_timeline(form.tent.data, form.prefab.data, tent_val, prefab_val, order_time, tent_lifetime, prefab_lifetime))
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\models.py", line 145, in pop_timeline
+    for (x,y) in orders:
+TypeError: cannot unpack non-iterable int object
+2019-06-10 14:36:23,336 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-10 14:36:37,230 ERROR: Exception on / [POST] [in C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\routes.py", line 33, in index
+    db.session.add(order)
+NameError: name 'order' is not defined
+2019-06-10 14:37:13,199 ERROR: Exception on / [POST] [in C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\heeya\Miniconda3\envs\flask_v\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\heeya\Mawa\flask_demo2\demo1\app\routes.py", line 33, in index
+    db.session.commit()
+NameError: name 'order' is not defined
+2019-06-10 14:37:51,388 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-10 15:56:33,172 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
+2019-06-11 10:52:24,788 INFO: Demo startup [in C:\Users\heeya\Mawa\flask_demo2\demo1\app\__init__.py:49]
